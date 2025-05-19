@@ -35,11 +35,7 @@ jobs:
         uses: krdlab/setup-haxe@master
         with:
           haxe-version: ${{ env.HAXE_VERSION }}
-
-      - name: Set IPHONEOS_DEPLOYMENT_TARGET 
-        if: inputs.name == 'iOS'
-        run: echo "IPHONEOS_DEPLOYMENT_TARGET=12.0" >> $GITHUB_ENV
-
+          
       - name: cache Build
         uses: actions/cache@v3
         with:
