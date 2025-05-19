@@ -36,6 +36,10 @@ jobs:
         with:
           haxe-version: ${{ env.HAXE_VERSION }}
 
+      - name: Set IPHONEOS_DEPLOYMENT_TARGET 
+        if: inputs.name == 'iOS'
+        run: echo "IPHONEOS_DEPLOYMENT_TARGET=12.0" >> $GITHUB_ENV
+
       - name: cache Build
         uses: actions/cache@v3
         with:
@@ -48,9 +52,6 @@ jobs:
           restore-keys: |
             cache-build-${{ inputs.name }}
 
-      - name: Set IPHONEOS_DEPLOYMENT_TARGET 
-        if: inputs.name == 'iOS'
-        run: echo "IPHONEOS_DEPLOYMENT_TARGET=14.0" >> $GITHUB_ENV
 
       - name: Install libVLC
         if: inputs.name == 'Linux'
