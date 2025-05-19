@@ -4,6 +4,7 @@ package backend;
 import android.Tools;
 import android.Permissions;
 import android.PermissionsList;
+import extension.devicelang.DeviceLanguage;
 #end
 import backend.AndroidDialogsExtend;
 	
