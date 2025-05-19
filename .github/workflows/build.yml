@@ -48,6 +48,10 @@ jobs:
           restore-keys: |
             cache-build-${{ inputs.name }}
 
+      - name: Set IPHONEOS_DEPLOYMENT_TARGET 
+        if: inputs.name == 'iOS'
+        run: echo "IPHONEOS_DEPLOYMENT_TARGET=14.0" >> $GITHUB_ENV
+
       - name: Install libVLC
         if: inputs.name == 'Linux'
         run: sudo apt install libvlc-dev libvlccore-dev
